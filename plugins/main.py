@@ -1,5 +1,5 @@
 import os
-from .config import Drone 
+from .config import Tellybots
 from telethon import events, Button
 
 from plugins.compressor import compress
