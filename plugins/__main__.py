@@ -18,4 +18,4 @@ for name in files:
 print("Successfully deployed!")
 
 if __name__ == "__main__":
-    Drone.run_until_disconnected()
+    Tellybots.run_until_disconnected()
