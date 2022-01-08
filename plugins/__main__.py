@@ -2,7 +2,7 @@ import glob
 from pathlib import Path
 from plugins.bot import load_plugins
 import logging
-from .config import Drone
+from .config import Tellybots
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
