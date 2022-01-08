@@ -1,6 +1,6 @@
 import glob
 from pathlib import Path
-
+from plugins.bot import load_plugins
 import logging
 from . import Drone
 
