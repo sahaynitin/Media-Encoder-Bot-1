@@ -14,7 +14,7 @@ from .translation import SUPPORT_LINK, JPG, JPG2, JPG3
 from plugins.utils import ffmpeg_progress
 from telethon.errors.rpcerrorlist import MessageNotModifiedError
 from telethon.tl.types import DocumentAttributeVideo
-from actions import LOG_START, LOG_END
+from .actions import LOG_START, LOG_END
 @Tellybots.on_message(filters.incoming & (filters.video | filters.document))
 async def compress(event, msg):
     Tellybots = event.client
