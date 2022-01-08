@@ -10,7 +10,7 @@ from config import Tellybots, BOT_UN, LOG_CHANNEL
 from telethon import events
 from ethon.telefunc import fast_download, fast_upload
 from ethon.pyfunc import video_metadata
-from translation import SUPPORT_LINK, JPG, JPG2, JPG3
+from .translation import SUPPORT_LINK, JPG, JPG2, JPG3
 from plugins.utils import ffmpeg_progress
 from telethon.errors.rpcerrorlist import MessageNotModifiedError
 from telethon.tl.types import DocumentAttributeVideo
