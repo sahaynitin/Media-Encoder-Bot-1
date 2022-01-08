@@ -1,1 +1,1 @@
-Tellybots: python -m main
+Tellybots: python -m plugins
