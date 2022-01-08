@@ -1,5 +1,4 @@
-#TG:ChauhanMahesh/DroneBots
-#Github.com/vasusen-code
+
 
 import asyncio
 import time
@@ -7,7 +6,7 @@ import subprocess
 import re
 import os
 from datetime import datetime as dt
-from .. import Drone, BOT_UN, LOG_CHANNEL
+from config import Tellybots, BOT_UN, LOG_CHANNEL
 from telethon import events
 from ethon.telefunc import fast_download, fast_upload
 from ethon.pyfunc import video_metadata
@@ -18,8 +17,8 @@ from telethon.tl.types import DocumentAttributeVideo
 from plugins.actions import LOG_START, LOG_END
 
 async def compress(event, msg):
-    Drone = event.client
-    edit = await Drone.send_message(event.chat_id, "Trying to process.", reply_to=msg.id)
+    Tellybots = event.client
+    edit = await tellybots.send_message(event.chat_id, "Trying to process.", reply_to=msg.id)
     new_name = "out_" + dt.now().isoformat("_", "seconds")
     if hasattr(msg.media, "document"):
         file = msg.media.document
@@ -79,7 +78,7 @@ async def compress(event, msg):
     if 'x-matroska' in mime:
         try:
             uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**UPLOADING:**')
-            await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
+            await Tellybots.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
         except Exception as e:
             await log.delete()
             await LOG_END(event, log_end_text)
@@ -89,7 +88,7 @@ async def compress(event, msg):
     elif 'webm' in mime:
         try:
             uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**UPLOADING:**')
-            await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
+            await Tellybots.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
         except Exception as e:
             await log.delete()
             await LOG_END(event, log_end_text)
@@ -108,7 +107,7 @@ async def compress(event, msg):
         except Exception:
             try:
                 uploader = await fast_upload(f'{out2}', f'{out2}', UT, Drone, edit, '**UPLOADING:**')
-                await Drone.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
+                await Tellybots.send_file(event.chat_id, uploader, caption=text, thumb=JPG, force_document=True)
             except Exception as e:
                 await log.delete()
                 await LOG_END(event, log_end_text)
