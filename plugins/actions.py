@@ -1,4 +1,15 @@
-#Logging events on tg---------------------------------------------------------------------------------------------
+import heroku3 
+from config import Tellybots, ACCESS_CHANNEL
+from telethon import events , Button
+from decouple import config
+
+from telethon.errors.rpcerrorlist import UserNotParticipantError
+from telethon.tl.functions.channels import GetParticipantRequest
+from telegraph import upload_file
+from telethon.errors.rpcerrorlist import FloodWaitError
+
+def mention(name, id):
+    return f'[{name}](tg://user?id={id})'
 
 async def LOG_START(event, ps_name):
     LOG_ID = config("LOG_ID", default=None)
